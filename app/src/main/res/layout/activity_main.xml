@@ -6,42 +6,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MainActivity">
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Iniciar Session"
-        android:textSize="30sp"
-        android:textColor="@color/colorAccent"
-
-        />
-
-</LinearLayout>
+    tools:context=".Main">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User"
-            />
+            android:text="Punto de Venta"
+            android:textSize="30sp"
+            android:textColor="@color/colorAccent"
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/user"
-            android:layout_weight="1"
-            android:ems="10"
-            android:textAlignment="center"
             />
 
     </LinearLayout>
@@ -49,47 +28,136 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Password"
-            />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:password="true"
-            android:textAlignment="center" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Categoria"
             android:id="@+id/btn1"
+            android:layout_margin="10dp"
+
             android:background="@color/colorAccent"
             android:textColor="#fff"
             />
+
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancel"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Marca"
+            android:layout_margin="10dp"
             android:id="@+id/btn2"
             android:background="@color/colorPrimary"
             android:textColor="#fff"
             />
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Producto"
+            android:layout_margin="10dp"
+            android:id="@+id/btn2"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#fff"
+            />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Vista Categoria"
+            android:id="@+id/btn4"
+            android:layout_margin="10dp"
+
+            android:background="@color/colorAccent"
+            android:textColor="#fff"
+            />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Vista Marca"
+            android:layout_margin="10dp"
+            android:id="@+id/btn5"
+            android:background="@color/colorPrimary"
+            android:textColor="#fff"
+            />
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Vista Producto"
+            android:layout_margin="10dp"
+            android:id="@+id/btn6"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#fff"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Punto de Venta"
+            android:id="@+id/btn7"
+            android:layout_margin="10dp"
+
+            android:background="@color/colorAccent"
+            android:textColor="#fff"
+            />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Vista Punto de Venta"
+            android:layout_margin="10dp"
+            android:id="@+id/btn8"
+            android:background="@color/colorPrimary"
+            android:textColor="#fff"
+            />
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Usuario"
+            android:layout_margin="10dp"
+            android:id="@+id/btn9"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#fff"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:text="Cerrar sesion"
+            android:id="@+id/btn4"
+            android:layout_margin="10dp"
+
+            android:background="@color/colorAccent"
+            android:textColor="#fff"
+            />
+
+
+
+    </LinearLayout>
+
 </LinearLayout>
