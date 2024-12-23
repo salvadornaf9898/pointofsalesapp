@@ -56,7 +56,7 @@
             android:layout_height="100dp"
             android:text="Producto"
             android:layout_margin="10dp"
-            android:id="@+id/btn2"
+            android:id="@+id/btn3"
             android:background="@color/colorPrimaryDark"
             android:textColor="#fff"
             />
@@ -149,7 +149,7 @@
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:text="Cerrar sesion"
-            android:id="@+id/btn4"
+            android:id="@+id/btn10"
             android:layout_margin="10dp"
 
             android:background="@color/colorAccent"
