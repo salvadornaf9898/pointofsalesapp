@@ -1,5 +1,6 @@
 package com.example.pointofsalesapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -52,6 +53,8 @@ public class login extends AppCompatActivity {
         }
         else if(username.equals("john") && password.equals("123")){
             Toast.makeText( this, "Se ha iniciado sesion",Toast.LENGTH_LONG).show();
+            Intent i = new Intent(login.this,Main.class);
+            startActivity(i);
         } else {
             Toast.makeText( this, "Error en contraseña",Toast.LENGTH_LONG).show();
         }
