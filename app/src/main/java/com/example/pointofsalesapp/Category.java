@@ -63,7 +63,7 @@ public class Category extends AppCompatActivity {
             String sql = "insert into category (category,catdesc)values(?,?)";
             SQLiteStatement statement = db.compileStatement(sql);
             statement.bindString(1,category);
-            statement.bindString(1,description);
+            statement.bindString(2,description);
             statement.execute();
             Toast.makeText(this,"Category Created",Toast.LENGTH_LONG).show();
 
