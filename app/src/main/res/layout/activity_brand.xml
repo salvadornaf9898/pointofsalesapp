@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".Category">
+    tools:context=".Brand">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Agregar Categoria"
+            android:text="Agregar Marca"
             android:textSize="30sp"
             android:textColor="@color/colorAccent"
 
@@ -32,13 +32,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Categoria"
+            android:text="Nombre De Marca"
             />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/category"
+            android:id="@+id/marca"
             android:layout_weight="1"
             android:ems="10"
             android:textAlignment="center"
@@ -54,11 +54,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descripcion de Categoria"
+            android:text="Descripcion de Marca"
             />
 
         <EditText
-            android:id="@+id/categorydesc"
+            android:id="@+id/marcadesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -86,11 +86,12 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel"
+            android:text="Cancelar"
             android:id="@+id/btn2"
             android:background="@color/colorAccent"
             android:textColor="#fff"
             />
 
     </LinearLayout>
+
 </LinearLayout>

@@ -7,14 +7,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class CategoryView extends AppCompatActivity {
+public class BrandView extends AppCompatActivity {
 
     ListView lst1;
     Button b1;
@@ -34,35 +33,35 @@ public class CategoryView extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(CategoryView.this,Main.class);
+                Intent i = new Intent(BrandView.this,Main.class);
                 startActivity(i);
 
             }
         });
 
         SQLiteDatabase db = openOrCreateDatabase("superpos", Context.MODE_PRIVATE,null);
-        final Cursor c = db.rawQuery( "select * from category", null);
+        final Cursor c = db.rawQuery( "select * from brand", null);
 
         int id = c.getColumnIndex("id");
-        int category = c.getColumnIndex("category");
-        int catdesc = c.getColumnIndex("catdesc");
+        int marca = c.getColumnIndex("brand_name");
+        int marcadesc = c.getColumnIndex("brand_desc");
 
         titles.clear();
         arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,titles);
 
         lst1.setAdapter(arrayAdapter);
 
-        final ArrayList<cate> catee = new ArrayList<cate>();
+        final ArrayList<brande> catee = new ArrayList<>();
         if(c.moveToFirst())
         {
             do{
-                cate ca = new cate();
+                brande ca = new brande();
                 ca.id = c.getString(id);
-                ca.category = c.getString(category);
-                ca.desc = c.getString(catdesc);
+                ca.brand_name = c.getString(marca);
+                ca.brand_desc = c.getString(marcadesc);
                 catee.add(ca);
 
-                titles.add(c.getString(id) + "\t" + c.getString(category) + "\t" + c.getString(catdesc));
+                titles.add(c.getString(id) + "\t" + c.getString(marca) + "\t" + c.getString(marcadesc));
 
             }while (c.moveToNext());
 
@@ -70,19 +69,19 @@ public class CategoryView extends AppCompatActivity {
             lst1.invalidateViews();
         }
 
-        lst1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-               String aaa = titles.get(position).toString();
-               cate ca = catee.get(position);
-               Intent i = new Intent(getApplicationContext(), CategoryEdit.class);
-               i.putExtra("id",ca.id);
-               i.putExtra("category",ca.category);
-               i.putExtra("catdesc",ca.desc);
-               startActivity(i);
-
-
-            }
-        });
+//        lst1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//                String aaa = titles.get(position).toString();
+//                cate ca = catee.get(position);
+//                Intent i = new Intent(getApplicationContext(), CategoryEdit.class);
+//                i.putExtra("id",ca.id);
+//                i.putExtra("category",ca.category);
+//                i.putExtra("catdesc",ca.desc);
+//                startActivity(i);
+//
+//
+//            }
+//        });
     }
 }

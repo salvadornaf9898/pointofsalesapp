@@ -46,6 +46,12 @@ public class CategoryEdit extends AppCompatActivity {
             }
         });
 
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                delete();
+            }
+        });
 
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +88,31 @@ public class CategoryEdit extends AppCompatActivity {
         } catch (Exception ex)
         {
             Toast.makeText(this,"Failed Write",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void delete(){
+        try
+        {
+            String catid = ed1.getText().toString();
+
+            SQLiteDatabase db = openOrCreateDatabase("superpos", Context.MODE_PRIVATE,null);
+
+
+            String sql = "delete from category where id =? ";
+            SQLiteStatement statement = db.compileStatement(sql);
+            statement.bindString(1,catid);
+
+            statement.execute();
+            Toast.makeText(this,"Categoria borrada",Toast.LENGTH_LONG).show();
+
+            Intent i = new Intent(getApplicationContext(), CategoryView.class);
+            startActivity(i);
+
+
+        } catch (Exception ex)
+        {
+            Toast.makeText(this,"Error",Toast.LENGTH_LONG).show();
         }
     }
 }
