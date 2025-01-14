@@ -18,8 +18,9 @@ public class Main extends AppCompatActivity {
 
         b1=findViewById(R.id.btn1);
         b2=findViewById(R.id.btn2);
-        b5=findViewById(R.id.btn5);
+        b3=findViewById(R.id.btn3);
         b4=findViewById(R.id.btn4);
+        b5=findViewById(R.id.btn5);
 
 
         b1.setOnClickListener(new View.OnClickListener() {
@@ -42,10 +43,10 @@ public class Main extends AppCompatActivity {
             }
         });
 
-        b5.setOnClickListener(new View.OnClickListener() {
+        b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Main.this,BrandView.class);
+                Intent i = new Intent(Main.this, product.class);
                 startActivity(i);
 
 
@@ -61,6 +62,18 @@ public class Main extends AppCompatActivity {
 
             }
         });
+
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Main.this,BrandView.class);
+                startActivity(i);
+
+
+            }
+        });
+
+
 
     }
 }
