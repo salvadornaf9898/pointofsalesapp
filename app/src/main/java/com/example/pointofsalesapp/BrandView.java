@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -69,19 +70,19 @@ public class BrandView extends AppCompatActivity {
             lst1.invalidateViews();
         }
 
-//        lst1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//                String aaa = titles.get(position).toString();
-//                cate ca = catee.get(position);
-//                Intent i = new Intent(getApplicationContext(), CategoryEdit.class);
-//                i.putExtra("id",ca.id);
-//                i.putExtra("category",ca.category);
-//                i.putExtra("catdesc",ca.desc);
-//                startActivity(i);
-//
-//
-//            }
-//        });
+        lst1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                String aaa = titles.get(position).toString();
+                brande ca = catee.get(position);
+                Intent i = new Intent(getApplicationContext(), BrandEdit.class);
+                i.putExtra("id",ca.id);
+                i.putExtra("brand",ca.brand_name);
+                i.putExtra("branddesc",ca.brand_desc);
+                startActivity(i);
+
+
+            }
+        });
     }
 }
