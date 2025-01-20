@@ -21,6 +21,7 @@ public class Main extends AppCompatActivity {
         b3=findViewById(R.id.btn3);
         b4=findViewById(R.id.btn4);
         b5=findViewById(R.id.btn5);
+        b6=findViewById(R.id.btn6);
 
 
         b1.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +74,15 @@ public class Main extends AppCompatActivity {
             }
         });
 
+        b6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Main.this,ProductView.class);
+                startActivity(i);
 
+
+            }
+        });
 
     }
 }
