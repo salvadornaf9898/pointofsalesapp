@@ -65,7 +65,7 @@ public class Category extends AppCompatActivity {
             statement.bindString(1,category);
             statement.bindString(2,description);
             statement.execute();
-            Toast.makeText(this,"Category Created",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Cateogria Creada",Toast.LENGTH_LONG).show();
 
             ed1.setText("");
             ed2.setText("");

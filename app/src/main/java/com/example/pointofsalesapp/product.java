@@ -45,6 +45,14 @@ public class product extends AppCompatActivity {
         b1 = findViewById(R.id.btn1);
         b2 = findViewById(R.id.btn2);
 
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                insert();
+
+            }
+        });
+
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,8 +115,57 @@ public class product extends AppCompatActivity {
         }
 
 
-
-
-
     }
+
+    public void insert(){
+        try
+        {
+            String product_name = ed1.getText().toString();
+            String product_desc = ed2.getText().toString();
+            String category_name = spinner.getSelectedItem().toString();
+            String brand_name = spinner1.getSelectedItem().toString();
+            String quantity =  ed3.getText().toString();
+            String price = ed4.getText().toString();
+
+
+
+            SQLiteDatabase db = openOrCreateDatabase("superpos", Context.MODE_PRIVATE,null);
+            db.execSQL("CREATE TABLE IF NOT EXISTS product(id INTEGER PRIMARY KEY AUTOINCREMENT, product_name VARCHAR, product_desc VARCHAR, category_name VARCHAR, brand_name VARCHAR, quantity VARCHAR, price VARCHAR)");
+
+//            String sql = "insert into category ( product_name, product_desc, category_name, brand_name, quantity , price)values(?,?,?,?,?,?)";
+  //          String sql = "insert into product ( product_name, product_desc, category_name, brand_name, quantity , price)values(?,?,?,?,?,?)";
+            String sql = "insert into product ( product_name, product_desc, category_name, brand_name, quantity, price)values(?,?,?,?,?,?)";
+            SQLiteStatement statement = db.compileStatement(sql);
+            statement.bindString(1,product_name);
+            statement.bindString(2,product_desc);
+            statement.bindString(3,category_name);
+            statement.bindString(4,brand_name);
+            statement.bindString(5,quantity);
+            statement.bindString(6,price);
+
+//            statement.bindString(1,product_name);
+//            statement.bindString(2,"Una Coca cola 12 oz de botalla");
+//            statement.bindString(3,"refresco");
+//            statement.bindString(4,"Coca COla");
+//            statement.bindString(5,"1");
+//            statement.bindString(6,"12");
+
+            statement.execute();
+            Toast.makeText(this,"Producto Creado",Toast.LENGTH_LONG).show();
+
+            ed1.setText("");
+            ed2.setText("");
+            ed3.setText("");
+            ed4.setText("");
+            ed1.requestFocus();
+
+
+
+        } catch (Exception ex)
+        {
+            Toast.makeText(this,"Failed Write",Toast.LENGTH_LONG).show();
+        }
+    }
+
+
 }
