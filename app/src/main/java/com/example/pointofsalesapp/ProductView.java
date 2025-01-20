@@ -45,6 +45,10 @@ public class ProductView extends AppCompatActivity {
         int id = c.getColumnIndex("id");
         int product_name = c.getColumnIndex("product_name");
         int product_desc = c.getColumnIndex("product_desc");
+        int category_name = c.getColumnIndex("category_name");
+        int brand_name = c.getColumnIndex("brand_name");
+        int quantity = c.getColumnIndex("quantity");
+        int price = c.getColumnIndex("price");
 
         titles.clear();
         arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,titles);
@@ -59,9 +63,13 @@ public class ProductView extends AppCompatActivity {
                 po.id = c.getString(id);
                 po.product_name = c.getString(product_name);
                 po.product_desc = c.getString(product_desc);
+                po.category_name = c.getString(category_name);
+                po.brand_name = c.getString(brand_name);
+                po.quantity = c.getString(quantity);
+                po.price = c.getString(price);
                 productee.add(po);
 
-                titles.add(c.getString(id) + "\t" + c.getString(product_name) + "\t" + c.getString(product_desc));
+                titles.add(c.getString(id) + "\t" + c.getString(product_name) + "\t" + c.getString(product_desc) + "\t" + c.getString(category_name) + "\t" + c.getString(brand_name) + "\t" + c.getString(quantity) + "\t" + c.getString(price));
 
             }while (c.moveToNext());
 
@@ -78,6 +86,10 @@ public class ProductView extends AppCompatActivity {
                 i.putExtra("id",po.id);
                 i.putExtra("product_name",po.product_name);
                 i.putExtra("product_desc",po.product_desc);
+                i.putExtra("category_name",po.category_name);
+                i.putExtra("brand_name",po.brand_name);
+                i.putExtra("quantity",po.quantity);
+                i.putExtra("price",po.price);
                 startActivity(i);
 
 
