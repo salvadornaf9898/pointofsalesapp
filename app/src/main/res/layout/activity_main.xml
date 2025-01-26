@@ -110,7 +110,7 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Punto de Venta"
+            android:text="Cajero"
             android:id="@+id/btn7"
             android:layout_margin="10dp"
 
@@ -118,15 +118,15 @@
             android:textColor="#fff"
             />
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="Vista Punto de Venta"
-            android:layout_margin="10dp"
-            android:id="@+id/btn8"
-            android:background="@color/colorPrimary"
-            android:textColor="#fff"
-            />
+        <!--<Button-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:text="Vista Punto de Venta"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:id="@+id/btn8"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--android:textColor="#fff"-->
+            <!--/>-->
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
