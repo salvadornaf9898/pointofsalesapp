@@ -180,25 +180,25 @@ public class pos extends AppCompatActivity {
             arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,titles);
             lst1.setAdapter(arrayAdapter);
 
-//            final ArrayList<posItem> posItems = new ArrayList<posItem>();
-//            if(c.moveToFirst())
-//            {
-//                do{
-//                    posItem pos_item = new posItem();
-//                    pos_item.product_id = c.getString(product_id);
-//                    pos_item.product_name = c.getString(product_name);
-//                    pos_item.quantity = c.getString(quantity);
-//                    pos_item.price = c.getString(price);
-//
-//                    posItems.add(pos_item);
-//
-//                    titles.add(pos_item.product_id + "\t" + pos_item.product_name + "\t" + pos_item.price);
-//
-//                }while (c.moveToNext());
-//
-//                arrayAdapter.notifyDataSetChanged();
-//                lst1.invalidateViews();
-//            }
+            final ArrayList<posItem> posItems = new ArrayList<posItem>();
+            if(c.moveToFirst())
+            {
+                do{
+                    posItem pos_item = new posItem();
+                    pos_item.product_id = c.getString(product_id);
+                    pos_item.product_name = c.getString(product_name);
+                    pos_item.quantity = c.getString(quantity);
+                    pos_item.price = c.getString(price);
+
+                    posItems.add(pos_item);
+
+                    titles.add(pos_item.product_id + "\t" + pos_item.product_name + "\t" + pos_item.price);
+
+                }while (c.moveToNext());
+
+                arrayAdapter.notifyDataSetChanged();
+                lst1.invalidateViews();
+            }
 
 
             Toast.makeText(this,"Lista",Toast.LENGTH_LONG).show();
