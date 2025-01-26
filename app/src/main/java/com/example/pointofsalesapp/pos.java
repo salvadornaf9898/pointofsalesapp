@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -18,15 +19,17 @@ import java.util.ArrayList;
 
 public class pos extends AppCompatActivity {
 
+    ListView lst1;
     EditText ed1, ed2, ed3,ed4;
     Button b1,b2, b3;
     ArrayList<String> titles = new ArrayList<String>();
-
+    ArrayAdapter arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pos);
+        lst1 = findViewById(R.id.lst1);
 
         ed1 = findViewById(R.id.pid);
         ed2 = findViewById(R.id.product);
@@ -58,6 +61,7 @@ public class pos extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 insert();
+                refreshList();
 
             }
         });
@@ -88,7 +92,6 @@ public class pos extends AppCompatActivity {
             int price = c.getColumnIndex("price");
 
 
-           titles.clear();
 
             final ArrayList<producte> productee = new ArrayList<producte>();
             if(c.moveToFirst())
@@ -155,6 +158,54 @@ public class pos extends AppCompatActivity {
         } catch (Exception ex)
         {
             Toast.makeText(this,"Error al agregar a caja",Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+    public void refreshList(){
+
+        try
+        {
+            SQLiteDatabase db = openOrCreateDatabase("superpos", Context.MODE_PRIVATE,null);
+            final Cursor c = db.rawQuery( "select * from pos_temp", null);
+
+
+            int id = c.getColumnIndex("id");
+            int product_id = c.getColumnIndex("product_id");
+            int product_name = c.getColumnIndex("product_name");
+            int quantity = c.getColumnIndex("quantity");
+            int price = c.getColumnIndex("price");
+
+            titles.clear();
+            arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,titles);
+            lst1.setAdapter(arrayAdapter);
+
+//            final ArrayList<posItem> posItems = new ArrayList<posItem>();
+//            if(c.moveToFirst())
+//            {
+//                do{
+//                    posItem pos_item = new posItem();
+//                    pos_item.product_id = c.getString(product_id);
+//                    pos_item.product_name = c.getString(product_name);
+//                    pos_item.quantity = c.getString(quantity);
+//                    pos_item.price = c.getString(price);
+//
+//                    posItems.add(pos_item);
+//
+//                    titles.add(pos_item.product_id + "\t" + pos_item.product_name + "\t" + pos_item.price);
+//
+//                }while (c.moveToNext());
+//
+//                arrayAdapter.notifyDataSetChanged();
+//                lst1.invalidateViews();
+//            }
+
+
+            Toast.makeText(this,"Lista",Toast.LENGTH_LONG).show();
+
+        } catch (Exception ex)
+        {
+            Toast.makeText(this,"Caja esta vacia",Toast.LENGTH_LONG).show();
         }
     }
 }

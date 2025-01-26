@@ -146,7 +146,12 @@
 
     </LinearLayout>
 
-
+    <ListView
+        android:id="@+id/lst1"
+        android:layout_width="395dp"
+        android:layout_height="715dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp" />
 
 
 </LinearLayout>
