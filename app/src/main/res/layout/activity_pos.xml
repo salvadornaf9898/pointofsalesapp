@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -32,7 +36,7 @@
     <TextView
         android:id="@+id/pid_label"
         android:layout_width="wrap_content"
-        android:layout_height="32dp"
+        android:layout_height="42dp"
 
         android:layout_below="@id/btn1"
         android:layout_marginLeft="10dp"
@@ -45,7 +49,7 @@
     <EditText
         android:id="@+id/pid"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:layout_below="@id/btn1"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
@@ -144,5 +148,11 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
         />
-
+    <TextView
+        android:id="@+id/TESTERl"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:text="TESTER" />
 </RelativeLayout>
