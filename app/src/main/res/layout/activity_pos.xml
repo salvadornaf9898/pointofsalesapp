@@ -148,11 +148,18 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
         />
+
+
+
     <TextView
         android:id="@+id/TESTERl"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="32dp"
+        android:background="@color/colorPrimary"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="10dp"
-        android:text="TESTER" />
+        android:text="TESTER"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:textStyle="bold"/>
+
 </RelativeLayout>
