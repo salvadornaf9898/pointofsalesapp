@@ -48,7 +48,7 @@ public class pos extends AppCompatActivity {
 
             }
         });
-
+        refreshList();
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
