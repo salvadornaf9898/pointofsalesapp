@@ -21,8 +21,8 @@ import java.util.ArrayList;
 public class pos extends AppCompatActivity {
 
     ListView lst1;
-    EditText ed1, ed2, ed3,ed4;
-    TextView ed5;
+    EditText ed1, ed3,ed4;
+    TextView ed2, ed5;
     Button b1,b2, b3;
     ArrayList<String> titles = new ArrayList<String>();
     ArrayAdapter arrayAdapter;
@@ -207,7 +207,7 @@ public class pos extends AppCompatActivity {
 
 
 //            Toast.makeText(this,"Lista" + item_count,Toast.LENGTH_LONG).show();
-            item_count_string = "My Awesome Text" + item_count ;
+            item_count_string = "En Carrito: " + item_count ;
            ed5.setText(item_count_string );
 
         } catch (Exception ex)

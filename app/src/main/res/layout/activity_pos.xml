@@ -77,7 +77,10 @@
         android:layout_below="@id/pid_label"
         android:layout_marginLeft="10dp"
         android:text="Producto" />
-    <EditText
+
+
+
+    <TextView
         android:id="@+id/product"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
@@ -87,6 +90,7 @@
         android:layout_weight="1"
         android:ems="5"
         android:gravity="left" />
+
     <TextView
         android:id="@+id/qty_label"
         android:layout_width="wrap_content"
