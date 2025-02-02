@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class pos extends AppCompatActivity {
 
     ListView lst1;
     EditText ed1, ed2, ed3,ed4;
+    TextView ed5;
     Button b1,b2, b3;
     ArrayList<String> titles = new ArrayList<String>();
     ArrayAdapter arrayAdapter;
@@ -35,6 +37,7 @@ public class pos extends AppCompatActivity {
         ed2 = findViewById(R.id.product);
         ed3 = findViewById(R.id.qty);
         ed4 = findViewById(R.id.price);
+        ed5 = findViewById(R.id.myAwesomeTextView);
 
         b1= findViewById(R.id.btn1);
         b2= findViewById(R.id.btn2);
@@ -169,12 +172,14 @@ public class pos extends AppCompatActivity {
             SQLiteDatabase db = openOrCreateDatabase("superpos", Context.MODE_PRIVATE,null);
             final Cursor c = db.rawQuery( "select * from pos_temp", null);
 
-
+            int item_count = 0 ;
             int id = c.getColumnIndex("id");
             int product_id = c.getColumnIndex("product_id");
             int product_name = c.getColumnIndex("product_name");
             int quantity = c.getColumnIndex("quantity");
             int price = c.getColumnIndex("price");
+            String item_count_string = "";
+
 
             titles.clear();
             arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,titles);
@@ -193,7 +198,7 @@ public class pos extends AppCompatActivity {
                     posItems.add(pos_item);
 
                     titles.add(pos_item.product_id + "\t" + pos_item.product_name + "\t" + pos_item.price);
-
+                    item_count ++;
                 }while (c.moveToNext());
 
                 arrayAdapter.notifyDataSetChanged();
@@ -201,7 +206,9 @@ public class pos extends AppCompatActivity {
             }
 
 
-            Toast.makeText(this,"Lista",Toast.LENGTH_LONG).show();
+//            Toast.makeText(this,"Lista" + item_count,Toast.LENGTH_LONG).show();
+            item_count_string = "My Awesome Text" + item_count ;
+           ed5.setText(item_count_string );
 
         } catch (Exception ex)
         {
