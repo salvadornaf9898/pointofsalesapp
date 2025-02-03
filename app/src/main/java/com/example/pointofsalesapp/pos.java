@@ -21,8 +21,8 @@ import java.util.ArrayList;
 public class pos extends AppCompatActivity {
 
     ListView lst1;
-    EditText ed1, ed3,ed4;
-    TextView ed2, ed5;
+    EditText ed1 ;
+    TextView ed2,ed3,ed4, ed5;
     Button b1,b2, b3;
     ArrayList<String> titles = new ArrayList<String>();
     ArrayAdapter arrayAdapter;
