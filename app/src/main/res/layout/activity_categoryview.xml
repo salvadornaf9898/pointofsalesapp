@@ -19,6 +19,15 @@
             android:background="@color/colorPrimaryDark"
             android:text="Inicio"
             android:textColor="#fff" />
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="@color/colorPrimary"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="Conteo"/>
 
     </LinearLayout>
 
@@ -28,4 +37,6 @@
         android:layout_height="715dp"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp" />
+
+
 </LinearLayout>

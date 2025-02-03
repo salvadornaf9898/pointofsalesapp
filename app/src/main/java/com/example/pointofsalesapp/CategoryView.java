@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -18,6 +19,7 @@ public class CategoryView extends AppCompatActivity {
 
     ListView lst1;
     Button b1;
+    TextView ed1;
     ArrayList<String> titles = new ArrayList<String>();
     ArrayAdapter arrayAdapter;
 
@@ -31,6 +33,9 @@ public class CategoryView extends AppCompatActivity {
         lst1 = findViewById(R.id.lst1);
         b1= findViewById(R.id.btn1);
 
+        ed1 = findViewById(R.id.count);
+        ed1.setText("");
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +47,8 @@ public class CategoryView extends AppCompatActivity {
 
         SQLiteDatabase db = openOrCreateDatabase("superpos", Context.MODE_PRIVATE,null);
         final Cursor c = db.rawQuery( "select * from category", null);
-
+        int item_count = 0 ;
+        String item_count_string = "";
         int id = c.getColumnIndex("id");
         int category = c.getColumnIndex("category");
         int catdesc = c.getColumnIndex("catdesc");
@@ -63,12 +69,16 @@ public class CategoryView extends AppCompatActivity {
                 catee.add(ca);
 
                 titles.add(c.getString(id) + "\t" + c.getString(category) + "\t" + c.getString(catdesc));
+                item_count ++;
 
             }while (c.moveToNext());
 
             arrayAdapter.notifyDataSetChanged();
             lst1.invalidateViews();
         }
+
+        item_count_string = "En Carrito: " + item_count ;
+        ed1.setText(item_count_string );
 
         lst1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
