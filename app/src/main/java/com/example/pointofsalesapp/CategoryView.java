@@ -77,7 +77,7 @@ public class CategoryView extends AppCompatActivity {
             lst1.invalidateViews();
         }
 
-        item_count_string = "En Carrito: " + item_count ;
+        item_count_string = "  Total de Categorias: " + item_count ;
         ed1.setText(item_count_string );
 
         lst1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
