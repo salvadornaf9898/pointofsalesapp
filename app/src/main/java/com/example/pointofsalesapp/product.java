@@ -62,57 +62,78 @@ public class product extends AppCompatActivity {
             }
         });
 
-        SQLiteDatabase db = openOrCreateDatabase("superpos", Context.MODE_PRIVATE,null);
-        final Cursor c = db.rawQuery( "select * from category", null);
 
-        int category = c.getColumnIndex("category");
+        try {
+            SQLiteDatabase db = openOrCreateDatabase("superpos", Context.MODE_PRIVATE,null);
+            final Cursor c = db.rawQuery( "select * from category", null);
 
-        titles.clear();
-        arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,titles);
+            int category = c.getColumnIndex("category");
 
-        spinner.setAdapter(arrayAdapter);
+            titles.clear();
+            arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,titles);
 
-        final ArrayList<cate> catee = new ArrayList<cate>();
-        if(c.moveToFirst())
-        {
-            do{
-                cate ca = new cate();
-                ca.category = c.getString(category);
-                catee.add(ca);
+            spinner.setAdapter(arrayAdapter);
 
-                titles.add(c.getString(category));
-            }while (c.moveToNext());
+            final ArrayList<cate> catee = new ArrayList<cate>();
+            if(c.moveToFirst())
+            {
+                do{
+                    cate ca = new cate();
+                    ca.category = c.getString(category);
+                    catee.add(ca);
 
+                    titles.add(c.getString(category));
+                }while (c.moveToNext());
+
+                arrayAdapter.notifyDataSetChanged();
+            }
+
+        }catch (Exception ex) {
+            titles.clear();
+            arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,titles);
+            spinner.setAdapter(arrayAdapter);
+            titles.add("N/A");
             arrayAdapter.notifyDataSetChanged();
+            Toast.makeText(this,"ERROR1 ",Toast.LENGTH_LONG).show();
         }
 
 
 
+        try {
+            SQLiteDatabase db1 = openOrCreateDatabase("superpos", Context.MODE_PRIVATE,null);
+            final Cursor c1 = db1.rawQuery( "select * from brand", null);
 
+            int marca = c1.getColumnIndex("brand_name");
 
-        SQLiteDatabase db1 = openOrCreateDatabase("superpos", Context.MODE_PRIVATE,null);
-        final Cursor c1 = db1.rawQuery( "select * from brand", null);
+            titles1.clear();
+            arrayAdapter1 = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,titles1);
+            spinner1.setAdapter(arrayAdapter1);
 
-        int marca = c1.getColumnIndex("brand_name");
+            final ArrayList<brande> brandee = new ArrayList<>();
+            if(c1.moveToFirst())
+            {
+                do{
+                    brande ba = new brande();
+                    ba.brand_name = c1.getString(marca);
+                    brandee.add(ba);
 
-        titles1.clear();
-        arrayAdapter1 = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,titles1);
-        spinner1.setAdapter(arrayAdapter1);
+                    titles1.add(c1.getString(marca));
+                }while (c1.moveToNext());
 
-        final ArrayList<brande> brandee = new ArrayList<>();
-        if(c1.moveToFirst())
-        {
-            do{
-                brande ba = new brande();
-                ba.brand_name = c1.getString(marca);
-                brandee.add(ba);
+                arrayAdapter1.notifyDataSetChanged();
 
-                titles1.add(c1.getString(marca));
-            }while (c1.moveToNext());
-
+            }
+        }catch (Exception ex) {
+            titles.clear();
+            arrayAdapter1 = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,titles);
+            spinner1.setAdapter(arrayAdapter1);
+            titles.add("N/A");
             arrayAdapter1.notifyDataSetChanged();
-
+            Toast.makeText(this,"ERROR1 ",Toast.LENGTH_LONG).show();
         }
+
+
+
 
 
     }

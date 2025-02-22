@@ -173,12 +173,14 @@ public class pos extends AppCompatActivity {
             final Cursor c = db.rawQuery( "select * from pos_temp", null);
 
             int item_count = 0 ;
+            int total = 0 ;
             int id = c.getColumnIndex("id");
             int product_id = c.getColumnIndex("product_id");
             int product_name = c.getColumnIndex("product_name");
             int quantity = c.getColumnIndex("quantity");
             int price = c.getColumnIndex("price");
             String item_count_string = "";
+
 
 
             titles.clear();
@@ -197,8 +199,9 @@ public class pos extends AppCompatActivity {
 
                     posItems.add(pos_item);
 
-                    titles.add(pos_item.product_id + "\t" + pos_item.product_name + "\t" + pos_item.price);
+                    titles.add(pos_item.product_id + "\t" + pos_item.product_name + "\t" + "$" + pos_item.price);
                     item_count ++;
+                    total = total + Integer.parseInt(pos_item.price);
                 }while (c.moveToNext());
 
                 arrayAdapter.notifyDataSetChanged();
@@ -207,7 +210,7 @@ public class pos extends AppCompatActivity {
 
 
 //            Toast.makeText(this,"Lista" + item_count,Toast.LENGTH_LONG).show();
-            item_count_string = "En Carrito: " + item_count ;
+            item_count_string = "En Carrito: " + item_count  + "    Total: $" + total;
            ed5.setText(item_count_string );
 
         } catch (Exception ex)
